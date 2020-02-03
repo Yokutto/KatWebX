@@ -1,0 +1,21 @@
+version: "3"
+services:
+  KatWebX:
+    build:
+      context: .
+      args:
+        - STREAM_TIMEOUT=45
+        - LOG_FORMAT="simple"
+        - ROOT_FOLDER="."
+        - ENABLE_PROTECT=true
+        - CACHING_TIMEOUT=0
+        - COMPRESS_FILES=true
+        - ENABLE_HSTS=false
+        - APPLICATION="http://mokyun.network"
+    image: yokutto/katwebx:latest
+    container_name: KatWebX
+    restart: on-failure
+    ports:
+      - "80:80"
+      - "443:443"
+
